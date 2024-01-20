@@ -1,0 +1,90 @@
+{
+    "frames": {
+        "proj_1_f1.png":
+        {
+            "frame": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_1_f2.png":
+        {
+            "frame": { "x": 15, "y": 0, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_1_f3.png":
+        {
+            "frame": { "x": 30, "y": 0, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_1_f4.png":
+        {
+            "frame": { "x": 45, "y": 0, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_2_f1.png":
+        {
+            "frame": { "x": 0, "y": 24, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_2_f2.png":
+        {
+            "frame": { "x": 15, "y": 24, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_2_f3.png":
+        {
+            "frame": { "x": 30, "y": 24, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_2_f4.png":
+        {
+            "frame": { "x": 45, "y": 24, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_3_f1.png":
+        {
+            "frame": { "x": 0, "y": 45, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_3_f2.png":
+        {
+            "frame": { "x": 15, "y": 45, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_3_f3.png":
+        {
+            "frame": { "x": 30, "y": 45, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        },
+        "proj_3_f4.png":
+        {
+            "frame": { "x": 45, "y": 45, "w": 9, "h": 21 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 9, "h": 21 },
+            "sourceSize": { "w": 9, "h": 21 }
+        }
+    },
+
+    "animations": {
+        "proj_1": ["proj_1_f1.png", "proj_1_f2.png", "proj_1_f3.png", "proj_1_f4.png"],
+        "proj_2": ["proj_2_f1.png", "proj_2_f2.png", "proj_2_f3.png", "proj_2_f4.png"],
+        "proj_3": ["proj_3_f1.png", "proj_3_f2.png", "proj_3_f3.png", "proj_3_f4.png"],
+        "player_proj": ["proj_3_f1.png"]
+    },
+
+    "meta": {
+        "image": "projectiles_sheet.png",
+        "format": "RGBA8888",
+        "size": { "w": 174, "h": 24 },
+        "scale": "1"
+    }
+}

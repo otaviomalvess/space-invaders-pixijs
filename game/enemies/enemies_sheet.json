@@ -1,0 +1,60 @@
+{
+    "frames": {
+        "alien_1_f1.png":
+        {
+            "frame": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "sourceSize": { "w": 48, "h": 24 }
+        },
+        "alien_1_f2.png":
+        {
+            "frame": { "x": 48, "y": 0, "w": 48, "h": 24 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "sourceSize": { "w": 48, "h": 24 }
+        },
+        "alien_2_f1.png":
+        {
+            "frame": { "x": 0, "y": 48, "w": 48, "h": 24 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "sourceSize": { "w": 48, "h": 24 }
+        },
+        "alien_2_f2.png":
+        {
+            "frame": { "x": 48, "y": 48, "w": 48, "h": 24 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "sourceSize": { "w": 48, "h": 24 }
+        },
+        "alien_3_f1.png":
+        {
+            "frame": { "x": 0, "y": 96, "w": 48, "h": 24 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "sourceSize": { "w": 48, "h": 24 }
+        },
+        "alien_3_f2.png":
+        {
+            "frame": { "x": 48, "y": 96, "w": 48, "h": 24 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "sourceSize": { "w": 48, "h": 24 }
+        },
+        "destroy.png":
+        {
+            "frame": { "x": 0, "y": 144, "w": 48, "h": 24 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 24 },
+            "sourceSize": { "w": 48, "h": 24 }
+        }
+    },
+
+    "animations": {
+        "alien_1": ["alien_1_f1.png", "alien_1_f2.png"],
+        "alien_2": ["alien_2_f1.png", "alien_2_f2.png"],
+        "alien_3": ["alien_3_f1.png", "alien_3_f2.png"],
+        "destroy": ["destroy.png"]
+    },
+
+    "meta": {
+        "image": "enemies_sheet.png",
+        "format": "RGBA8888",
+        "size": { "w": 96, "h": 168 },
+        "scale": "1"
+    }
+}
