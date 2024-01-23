@@ -8,7 +8,7 @@ const app = new Application({
 
 
 const createApplication = () => {
-    document.body.appendChild(app.view);
+    document.getElementById("center-container").appendChild(app.view);
 };
 
 

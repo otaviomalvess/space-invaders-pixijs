@@ -19,11 +19,60 @@
 	</head>
 
 	<body>
+		<div id="container" class="container">
+			<div id="center-container">
+				<div id="instructions">
+					<table>
+						<tr>
+							<th>Button</th>
+							<th>Action</th>
+						</tr>
+						<tr>
+							<td>A, Left Arrow</td>
+							<td>Move to the left</td>
+						</tr>
+						<tr>
+							<td>D, Right Arrow</td>
+							<td>Move to the right</td>
+						</tr>
+						<tr>
+							<td>W, Space, Up Arrow</td>
+							<td>Shoot</td>
+						</tr>
+					</table>
+					<p>
+						If game is over, press the Shoot action to restart.
+					</p>
+				</div>
+			</div>
+		</div>
 	</body>
 
 	<style>
 		body {
-			background-color: darkgreen;
+			background-color: darkolivegreen;
+		}
+
+		table, th, td {
+			border: 1px solid;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		table, p {
+			font-family: 'Helvetica', 'Arial', 'sans-serif';
+			font-size: large;
+		}
+		
+		.container {
+			width: 100%;
+			padding: 12px;
+
+			display: flex;
+			justify-content: center;
 		}
 	</style>
 </html>
