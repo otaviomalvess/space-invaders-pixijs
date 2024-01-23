@@ -1,5 +1,5 @@
 import { AnimatedSprite, Assets } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
-import { app, gameRestart } from '../index.js'; // @WORKAROUND: not a fan of doing this.
+import { app } from '../application/application.js';
 import * as Projectile from '../projectile/projectile.js';
 import * as ProjectilesManager from '../projectile/projectiles_manager.js';
 import * as HUD from '../ui/hud.js';
@@ -27,10 +27,12 @@ const inputMap = {
 
 let lives = 3;
 let score = 0;
-let projectile = null;
-let spritesheet = null;
-let animSprite = null;
+let projectile;
+let spritesheet;
+let animSprite;
 let moveInput = 0;
+
+let onDied;
 
 
 /**
@@ -108,7 +110,7 @@ const input = (e) => {
             }
             
             if (Globals.curGameState === Globals.GameState.GAME_OVER) {
-                gameRestart();
+                Globals.onGameRestart();
                 return;
             }
 
@@ -149,7 +151,7 @@ const getBounds = () => {
 /**
  * Handler for when the player gets hit.
  */
-const onHit = () => {
+const hit = () => {
     Globals.setCurGameState(Globals.GameState.PLAYER_DESTROYED);
 
     lives--;
@@ -163,7 +165,7 @@ const onHit = () => {
     
     animSprite.onComplete = () => {
         if (lives === 0) {
-            Globals.onGameOver();
+            onDied();
             return;
         }
 
@@ -189,6 +191,9 @@ const reset = () => {
 };
 
 
+const setOnDied = (func) => onDied = func; 
+
+
 const shoot = () => {
     if (projectile.shot) {
         return;
@@ -206,4 +211,13 @@ const shoot = () => {
 };
 
 
-export { getBounds, load, onHit, onLevelReset, physicsTick, ready, reset };
+export {
+    getBounds,
+    load,
+    hit,
+    onLevelReset,
+    physicsTick,
+    ready,
+    reset,
+    setOnDied
+};

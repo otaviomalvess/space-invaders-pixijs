@@ -1,5 +1,5 @@
 import { Graphics } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
-import { app } from '../index.js'; // @WORKAROUND: not a fan of doing this.
+import { app } from '../application/application.js';
 
 
 const floor = new Graphics();
@@ -14,4 +14,9 @@ const ready = () => {
 };
 
 
-export { ready };
+const getYPosition = () => {
+    return floor.position.y;
+};
+
+
+export { getYPosition, ready };

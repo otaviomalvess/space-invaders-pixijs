@@ -1,7 +1,6 @@
 import { AnimatedSprite, Assets, Container } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
-import { app } from '../index.js'; // @WORKAROUND: not a fan of doing this.
+import { app } from '../application/application.js';
 import * as ProjectilesManager from '../projectile/projectiles_manager.js';
-import * as Globals from '../globals.js';
 
 
 const container = new Container();
@@ -18,6 +17,9 @@ let moveElapsedTime = MAX_MOVE_ELAPSED_TIME;
 let shotElapsedTime = 2;
 
 let totalEnemiesAlive;
+
+let onSteppedDown;
+let onEnemyDestroyed;
 
 
 /**
@@ -71,7 +73,7 @@ const load = async () => {
 
 
 const ready = () => {
-    container.set.position(50, 64);
+    container.position.set(50, 64);
 };
 
 
@@ -98,8 +100,7 @@ const physicsTick = (dt) => {
 
     if (container.x < 50) {
         container.x = 50;
-        moveDir = 1;
-        container.y += V_STEP_DISTANCE;
+        stepDown();
     }
     else if (container.x + container.width > 590) {
         container.x = 590 - container.width;
@@ -115,11 +116,16 @@ const physicsTick = (dt) => {
 };
 
 
+const getContainerBottomY = () => {
+    return container.y + container.height;
+};
+
+
 /**
  * Handler for when one of the enemies gets hit.
  * @param {Object} enemy
  */
-const onHit = (enemy) => {
+const hit = (enemy) => {
     totalEnemiesAlive -= 1;
 
     enemy.alive = false;
@@ -130,10 +136,7 @@ const onHit = (enemy) => {
     enemy.onComplete = () => {
         enemy.visible = false;
         container.calculateBounds();
-
-        if (totalEnemiesAlive === 0) {
-            Globals.onGameWin();
-        }
+        onEnemyDestroyed();
     };
 
     enemy.play();
@@ -172,18 +175,32 @@ const shoot = () => {
 };
 
 
+const setOnSteppedDown = (func) => onSteppedDown = func;
+
+
+const setOnEnemyDestroyed = (func) => onEnemyDestroyed = func;
+
+
 /**
  * Handles moving the container down.
  */
 const stepDown = () => {
-    moveDir = -1;
+    moveDir *= -1;
     container.y += V_STEP_DISTANCE;
-    
-    const bot = container.y + container.height;
-    if (Math.abs(bot - 425) < 32) {
-        Globals.onGameOver();
-    }
+
+    onSteppedDown();
 };
 
 
-export { container, load, onHit, physicsTick, ready, reset };
+export {
+    container,
+    getContainerBottomY,
+    load,
+    hit,
+    physicsTick,
+    ready,
+    reset,
+    setOnEnemyDestroyed,
+    setOnSteppedDown,
+    totalEnemiesAlive
+};

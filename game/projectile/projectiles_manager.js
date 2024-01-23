@@ -1,7 +1,6 @@
 import { AnimatedSprite, Assets } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
-import { app } from '../index.js'; // @WORKAROUND: not a fan of doing this.
+import { app } from '../application/application.js';
 import * as Projectile from './projectile.js';
-import * as Player from '../player/player.js';
 
 
 const projectiles = [];
@@ -22,12 +21,28 @@ const load = async () => {
 };
 
 
+const ready = () => {
+    Projectile.setOnDestroyed(removeProjectile);
+};
+
+
 /**
  * @param {Float} dt 
  */
 const physicsTick = (dt) => {
     projectiles.forEach((p) => {
-        Projectile.move(p, dt);
+        const isOutOfBounds = Projectile.move(p, dt);
+        
+        if (!isOutOfBounds) {
+            return;
+        }
+        
+        app.stage.removeChild(p.animSprite);
+        removeProjectile(p);
+
+        if (p.outOfBounds) {
+            p.outOfBounds();
+        }
     });
 };
 
@@ -60,7 +75,6 @@ const instantiateProjectile = (initialPosition) => {
     const p = Projectile.create();
     p.animSprite = new AnimatedSprite(spritesheet.animations[`proj_${anim}`]);
     p.verticalDirection = 1;
-    p.onHit = Player.onHit;
     Projectile.ready(p, initialPosition);
     
     addProjectile(p);
@@ -94,4 +108,14 @@ const reset = () => {
 };
 
 
-export { addProjectile, getPlayerProjectileSprite, instantiateProjectile, load, physicsTick, projectiles, removeProjectile, reset };
+export {
+    addProjectile,
+    getPlayerProjectileSprite,
+    instantiateProjectile,
+    load,
+    physicsTick,
+    projectiles,
+    ready,
+    removeProjectile,
+    reset
+};

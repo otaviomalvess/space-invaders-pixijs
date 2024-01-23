@@ -1,8 +1,9 @@
-import { app } from '../index.js'; // @WORKAROUND: not a fan of doing this.
-import * as ProjectilesManager from './projectiles_manager.js';
+import { app } from '../application/application.js';
 
 
 const SPEED = 3.0;
+
+let onDestroyed;
 
 
 /**
@@ -15,7 +16,7 @@ const create = () => {
         verticalDirection: 0,
         fromPlayer: false,
         // Events
-        onHit: {},
+        onHit: undefined,
         outOfBounds: undefined
     };
 }
@@ -40,10 +41,12 @@ const ready = (projectile, initialPosition) => {
  * @param {Object} projectile 
  */
 const hit = (projectile) => {
-    app.stage.removeChild(projectile.animSprite);
+    if (projectile.onHit) {
+        projectile.onHit();
+    }
 
-    projectile.onHit();
-    ProjectilesManager.removeProjectile(projectile);
+    app.stage.removeChild(projectile.animSprite);
+    onDestroyed(projectile);
 };
 
 
@@ -51,21 +54,18 @@ const hit = (projectile) => {
  * Moves the projectile sprite at the scene.
  * @param {Object} projectile 
  * @param {Float} dt 
+ * @returns `true` if projectile is out of bounds. `false` if not.
  */
 const move = (projectile, dt) => {
     projectile.animSprite.y += projectile.verticalDirection * SPEED * dt;
 
     // Check if out of bounds.
     const bot = projectile.animSprite.y + projectile.animSprite.height;
-    if (bot < .0 || bot > 480) {
-        app.stage.removeChild(projectile.animSprite);
-        ProjectilesManager.removeProjectile(projectile);
-
-        if (projectile.outOfBounds) {
-            projectile.outOfBounds();
-        }
-    }
+    return bot < .0 || bot > 480;
 };
 
 
-export { create, hit, move, ready };
+const setOnDestroyed = (func) => onDestroyed = func;
+
+
+export { create, hit, move, ready, setOnDestroyed };
