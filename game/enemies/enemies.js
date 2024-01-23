@@ -1,4 +1,4 @@
-import { AnimatedSprite, Assets, Container } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
+import { AnimatedSprite, Assets, Container } from '../../pixi/pixi.mjs';
 import { app } from '../application/application.js';
 import * as ProjectilesManager from '../projectile/projectiles_manager.js';
 

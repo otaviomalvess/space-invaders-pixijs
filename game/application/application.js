@@ -1,4 +1,4 @@
-import { Application } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
+import { Application } from '../../pixi/pixi.mjs';
 
 
 const app = new Application({
