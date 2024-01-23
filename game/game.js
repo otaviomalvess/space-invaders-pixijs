@@ -1,12 +1,12 @@
 import { Ticker } from '../node_modules/pixi.js/dist/pixi.min.mjs';
 import { createApplication } from './application/application.js';
-import * as Floor from '../game/floor/floor.js';
-import * as Player from '../game/player/player.js';
-import * as Enemies from '../game/enemies/enemies.js';
+import * as Floor from './floor/floor.js';
+import * as Player from './player/player.js';
+import * as Enemies from './enemies/enemies.js';
 import * as ProjectilesManager from './projectile/projectiles_manager.js';
-import * as Projectile from '../game/projectile/projectile.js';
-import * as HUD from '../game/ui/hud.js';
-import { curGameState, GameState, setCurGameState, setOnGameRestart } from '../game/globals.js';
+import * as Projectile from './projectile/projectile.js';
+import * as HUD from './ui/hud.js';
+import { curGameState, GameState, setCurGameState, setOnGameRestart } from './globals.js';
 
 
 // Game Win Transition
