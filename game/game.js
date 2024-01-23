@@ -1,4 +1,4 @@
-import { Ticker } from '../node_modules/pixi.js/dist/pixi.min.mjs';
+import { Ticker } from '../pixi/pixi.mjs';
 import { createApplication } from './application/application.js';
 import * as Floor from './floor/floor.js';
 import * as Player from './player/player.js';

@@ -1,4 +1,4 @@
-import { Graphics } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
+import { Graphics } from '../../pixi/pixi.mjs';
 import { app } from '../application/application.js';
 
 

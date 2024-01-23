@@ -1,4 +1,4 @@
-import { Assets, Container, Sprite, Text } from '../../node_modules/pixi.js/dist/pixi.min.mjs';
+import { Assets, Container, Sprite, Text } from '../../pixi/pixi.mjs';
 import { app } from '../application/application.js';
 
 
