@@ -8,8 +8,7 @@ Object.freeze(GameState);
 
 let curGameState = GameState.OK;
 
-let onGameOver;
-let onGameWin;
+let onGameRestart;
 
 
 /**
@@ -19,18 +18,7 @@ let onGameWin;
 const setCurGameState = (nextState) => curGameState = nextState;
 
 
-/**
- * Subscribes the given function to `onGameOver`.
- * @param {Function} func
- */
-const setOnGameOver = (func) => onGameOver = func;
+const setOnGameRestart = (func) => onGameRestart = func;
 
 
-/**
- * Subscribes the given function to `onGameWin`.
- * @param {Function} func
- */
-const setOnGameWin = (func) => onGameWin = func;
-
-
-export { curGameState, GameState, onGameOver, onGameWin, setCurGameState, setOnGameOver, setOnGameWin};
+export { curGameState, GameState, onGameRestart, setCurGameState, setOnGameRestart};
